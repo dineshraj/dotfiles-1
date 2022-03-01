@@ -39,26 +39,6 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --smart-case --glob "!.
 # z
 . ~/z.sh
 
-# depot tools
-export PATH=$PATH:$HOME/depot_tools
-
-# android
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$ANDROID_HOME/emulator:$PATH
-export PATH=$ANDROID_HOME/tools:$PATH
-export PATH=$ANDROID_HOME/tools/bin:$PATH
-export PATH=$ANDROID_HOME/platform-tools:$PATH
-
-# ripgrep
-export RIPGREP_CONFIG_PATH=$HOME/.rgrc
-
-# conda
-export PATH="/usr/local/miniconda3/bin:$PATH"
-
-# linux utils
-export PATH="/usr/local/opt/util-linux/bin:$PATH"
-export PATH="/usr/local/opt/util-linux/sbin:$PATH"
-
 # pyenv
 export PYENV_SHELL=zsh
 command pyenv rehash 2>/dev/null

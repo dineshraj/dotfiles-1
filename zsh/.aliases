@@ -303,7 +303,7 @@ create-repo() {
 	fi
 
 	# Curl some json to the github API oh damn we so fancy
-	curl -u gretzky https://api.github.com/user/repos -d "{\"name\": \"$REPONAME\", \"private\": $PRIVATE_TF}" >/dev/null
+	curl -u dineshraj https://api.github.com/user/repos -d "{\"name\": \"$REPONAME\", \"private\": $PRIVATE_TF}" >/dev/null
 
 	# first commit
 	git init 1>/dev/null
@@ -312,12 +312,12 @@ create-repo() {
 	git add . 1>/dev/null
 	git commit -m "initial commit" 1>/dev/null
 	print_success "initial commit"
-	git remote add origin https://github.com/gretzky/$REPONAME.git 1>/dev/null
-	git push -u origin master --force 1>/dev/null
+	git remote add origin https://github.com/dineshraj/$REPONAME.git 1>/dev/null
+	git push -u origin main--force 1>/dev/null
 
 	sleep 0.5
 	print_success "\nRepo created"
-	print_in_cyan "You can view your new repo at https://github.com/gretzky/$REPONAME.git"
+	print_in_cyan "You can view your new repo at https://github.com/dineshraj/$REPONAME.git"
 }
 
 # make new dir and cd into it

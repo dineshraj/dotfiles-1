@@ -15,18 +15,6 @@ install_brew() {
     brew bundle
 }
 
-create_dirs() {
-    declare -a dirs=(
-        "$HOME/Downloads/torrents"
-        "$HOME/Desktop/screenshots"
-        "$HOME/dev"
-    )
-
-    for i in "${dirs[@]}"; do
-        mkdir "$i"
-    done
-}
-
 build_xcode() {
     if ! xcode-select --print-path &> /dev/null; then
         xcode-select --install &> /dev/null
@@ -42,14 +30,11 @@ build_xcode() {
 }
 
 install_app_store_apps() {
-    mas install 497799835 # Xcode
-    mas install 1451685025 # WireGuard
-    mas install 1509590766 # Mutekey
-    mas install 1195076754 # Pikka
+    mas install 634148309 # Logic Pro
+    mas install 1429033973 # RunCat
+    mas install 411643860 # DaisyDisk
+    mas install 408981434 # iMovie
 }
-
-printf "🗄  Creating directories\n"
-create_dirs
 
 printf "🛠  Installing Xcode Command Line Tools\n"
 build_xcode
@@ -93,14 +78,12 @@ printf "🐍  Configure Python\n"
 # setup pyenv / global python to 3.10.x
 pyenv install 3.10 1>/dev/null
 pyenv global 3.10 1>/dev/null
-# dont set conda clutter in zshrc
-conda config --set auto_activate_base false
 
 printf "👽  Installing vim-plug\n"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 printf "🐗  Stow dotfiles\n"
-stow alacritty colorls fzf git nvim skhd starship tmux vim yabai z zsh
+stow colorls fzf git nvim skhd starship vim yabai z zsh
 
 printf "✨  Done!\n"

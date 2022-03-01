@@ -11,7 +11,6 @@ SAVEHIST=10000
 source ~/antigen.zsh
 
 antigen bundles <<EOBUNDLES
-    tmux
     command-not-found
     colored-man-pages
 
@@ -30,6 +29,3 @@ eval "$(starship init zsh)"
 source $HOME/dotfiles/zsh/.exports
 source $HOME/dotfiles/zsh/.aliases
 
-# start tmux on open
-[[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && exec tmux

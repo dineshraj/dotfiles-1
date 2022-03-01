@@ -9,7 +9,7 @@ Dotfiles for my M1 Macbook Pro 18,1 running macOS Monterey 12.0.1.
 -   Window management: [yabai](https://github.com/koekeishiya/yabai)
 -   Hotkeys: [skhd](https://github.com/koekeishiya/skhd)
 -   Vim: [neovim](https://neovim.io/) with [vim-plug](https://github.com/junegunn/vim-plug) to manage plugins
--   Tools: [tmux](https://github.com/tmux/tmux), [z](https://github.com/rupa/z), [fzf](https://github.com/junegunn/fzf)
+-   Tools: [z](https://github.com/rupa/z), [fzf](https://github.com/junegunn/fzf)
 
 ## Installation
 
@@ -17,21 +17,19 @@ Dotfiles for my M1 Macbook Pro 18,1 running macOS Monterey 12.0.1.
 
 To install:
 
-`curl -L https://git.io/JeA7g | sh`
+`curl -L https://raw.githubusercontent.com/dineshraj/dotfiles/main/run.sh | sh`
 
-This expands to [run.sh](https://github.com/gretzky/dotfiles/blob/master/run.sh) which will fetch this repo and run the install script.
+This expands to [run.sh](https://github.com/dineshraj/dotfiles/blob/main/run.sh) which will fetch this repo and run the install script.
 
 ## File overview
 
 -   Configs for the following tools:
     -   git
-    -   [Alacritty](./alacritty)
     -   [colorls](./colorls)
     -   [fzf](./fzf)
     -   [neovim](./nvim)
     -   [skhd](./skhd)
     -   [starship](./starship)
-    -   [tmux](./tmux)
     -   [VSCode](./vscode)
     -   [yabai](./yabai)
     -   [z](./z)
