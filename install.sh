@@ -6,6 +6,7 @@ install_brew() {
         # install homebrew
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         # set path
+        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/dgoomany/.zprofile
         eval "$(/opt/homebrew/bin/brew shellenv)"
     fi
 
