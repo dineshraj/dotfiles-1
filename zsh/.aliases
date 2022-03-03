@@ -236,6 +236,7 @@ alias c="clear"
 # alias bye="sudo shutdown -r now"
 # alias get="curl -O -L"
 # alias vi="vim"
+alias ll="ls -la"
 alias reload="source ~/.zshrc"
 
 # # use ccat
