@@ -16,6 +16,11 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # General UI/UX                                                               #
 ###############################################################################
 
+sudo scutil --set ComputerName "dineshraj"
+sudo scutil --set HostName "dineshraj"
+sudo scutil --set LocalHostName "dineshraj"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "dineshraj"
+
 # Set login window message
 sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "If lost please return to dineshraj.goomany@gmail.com"
 
@@ -109,12 +114,6 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 # Trackpad: enable 3 finger drag
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true
-
-# Trackpad: map bottom right corner to right-click
-# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
-# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
-# defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
-# defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
 
 # Increase sound quality for Bluetooth headphones/headsets
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
@@ -323,7 +322,7 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 defaults write com.apple.dock mouse-over-hilite-stack -bool true
 
 # Set the icon size of Dock items to 65 pixels
-defaults write com.apple.dock tilesize -int 65
+defaults write com.apple.dock tilesize -int 35
 
 # Change minimize/maximize window effect
 defaults write com.apple.dock mineffect -string "scale"
