@@ -54,6 +54,8 @@ ruby-install ruby-2.7.4 1>/dev/null
 source /opt/homebrew/opt/chruby/share/chruby.sh
 source /opt/homebrew/opt/chruby/share/auto.sh
 chruby ruby-2.7.4 1>/dev/null
+# Own the Ruby folder to install gems
+sudo chown -R $USER /Library/Ruby/Gems/
 # disable downloading documentation
 echo "gem: --no-document" >> ~/.gemrc
 gem update --system 1>/dev/null
