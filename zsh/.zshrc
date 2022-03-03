@@ -1,5 +1,5 @@
 export PATH="/usr/local/sbin:$PATH"
-export EDITOR=nvim
+export EDITOR=code
 
 # uncomment to run zprof
 # zmodload zsh/prof
@@ -8,7 +8,9 @@ export EDITOR=nvim
 HISTSIZE=50000
 SAVEHIST=10000
 
-source ~/antigen.zsh
+source ~/.antigen.zsh
+
+antigen use oh-my-zsh
 
 antigen bundles <<EOBUNDLES
     command-not-found
@@ -16,16 +18,15 @@ antigen bundles <<EOBUNDLES
 
     zsh-users/zsh-autosuggestions
     zsh-users/zsh-completions
-    djui/alias-tips
     zsh-users/zsh-syntax-highlighting
-    gretzky/auto-color-ls
 EOBUNDLES
 antigen apply
+
+# load the rest of the configs
+source $HOME/.dotfiles/zsh/.exports
+source $HOME/.dotfiles/zsh/.aliases
 
 # set starship prompt
 eval "$(starship init zsh)"
 
-# load the rest of the configs
-source $HOME/dotfiles/zsh/.exports
-source $HOME/dotfiles/zsh/.aliases
-
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

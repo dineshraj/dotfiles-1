@@ -18,8 +18,8 @@ export GPG_TTY=$(tty)
 PATH=$PATH:/opt/homebrew/bin
 
 # configure ruby
-source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
-source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+# source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+# source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 
 # Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
 export PYTHONIOENCODING='UTF-8'
@@ -37,7 +37,7 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --smart-case --glob "!.git/*" --glob "!node_modules/*"'
 
 # z
-. ~/z.sh
+. ~/.z.sh
 
 # pyenv
 export PYENV_SHELL=zsh

@@ -31,10 +31,10 @@ build_xcode() {
 }
 
 install_app_store_apps() {
-    mas install 634148309 # Logic Pro
-    mas install 1429033973 # RunCat
-    mas install 411643860 # DaisyDisk
-    mas install 408981434 # iMovie
+    # mas install 634148309 # Logic Pro
+    # mas install 1429033973 # RunCat
+    # mas install 411643860 # DaisyDisk
+    # mas install 408981434 # iMovie
 }
 
 printf "🛠  Installing Xcode Command Line Tools\n"
@@ -44,7 +44,7 @@ printf "🍺  Installing Homebrew packages\n"
 install_brew
 
 printf "🛍️  Installing Mac App Store apps\n"
-install_app_store_apps
+# install_app_store_apps
 
 printf "💻  Set macOS preferences\n"
 ./macos/.macos
@@ -79,6 +79,9 @@ printf "🐍  Configure Python\n"
 # setup pyenv / global python to 3.10.x
 pyenv install 3.10 1>/dev/null
 pyenv global 3.10 1>/dev/null
+
+printf "Installing fzf for control+r integration"
+$(brew --prefix)/opt/fzf/install
 
 printf "👽  Installing vim-plug\n"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
