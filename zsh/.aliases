@@ -10,7 +10,7 @@
 alias g="git"
 
 # # one letter aliases w/o options
-# alias ga="git add"
+alias ga="git add"
 # alias gb="git branch"
 # alias gf="git fetch"
 # alias gg="git grep"
@@ -65,11 +65,11 @@ alias gc="git commit -am"
 # alias glo="git log --oneline"
 
 # # changelog
-# alias changelog="git log --pretty=format:"%h %ad%x09%an%x09%s" --date=short"
+alias changelog="git log --pretty=format:"%h %ad%x09%an%x09%s" --date=short"
 
 # # push
-# alias gp="git push"
-# alias gpu="git push -u origin"
+alias gp="git push"
+alias gpu="git push -u origin"
 # alias undopush="git push -f origin HEAD^:master"
 
 # # rebase
@@ -91,14 +91,14 @@ alias gc="git commit -am"
 # alias gpr="git pull-request"
 
 # # better ls
-# alias ls="echo; colorls -A --group-directories-first"
+alias ls="echo; colorls -A --group-directories-first"
 
 # ###
 # # coreutils
 # ###
 
 # # files output
-# alias tail="gtail -F" # follows log rotations
+alias tail="gtail -F" # follows log rotations
 # alias split="gsplit"
 # alias csplit="gcsplit"
 
@@ -222,10 +222,11 @@ alias gc="git commit -am"
 # alias ycc="yarn cache clean"
 
 # # shortcuts
-# alias md="mkdir"
+alias md="mkdir"
+alias rmd="rm -rf"
 # alias t="touch"
 # alias x="exit"
-# alias c="clear"
+alias c="clear"
 # alias o="open ."
 # alias vi="nvim"
 # alias vim="nvim"
@@ -235,7 +236,7 @@ alias gc="git commit -am"
 # alias bye="sudo shutdown -r now"
 # alias get="curl -O -L"
 # alias vi="vim"
-# alias reload="source ~/.zshrc"
+alias reload="source ~/.zshrc"
 
 # # use ccat
 # alias cat="ccat"
@@ -243,11 +244,11 @@ alias gc="git commit -am"
 # # commonly used dirs
 # alias dev="cd ~/dev"
 # alias work="cd ~/dev/work"
-# alias desk="cd ~/desktop"
+alias desk="cd ~/Desktop"
 # alias docs="cd ~/documents"
 # alias dl="cd ~/downloads"
-# alias home="cd ~"
-# alias dotfiles="cd ~/dotfiles"
+alias home="cd ~"
+alias dotfiles="cd ~/.dotfiles"
 
 # # python
 # alias pip="pip3"
@@ -287,37 +288,37 @@ alias gc="git commit -am"
 # 	curl -L -s https://www.gitignore.io/api/$@
 # }
 
-# # create a remote repo
-# create-repo() {
-# 	# Get user input
-# 	echo "Enter name for new repo"
-# 	read REPONAME
-# 	echo "Do you want to make it private? (y/n)"
-# 	read -r -n PRIVATE_ANSWER
+# create a remote repo
+create-repo() {
+	# Get user input
+	echo "Enter name for new repo"
+	read REPONAME
+	echo "Do you want to make it private? (y/n)"
+	read -r -n PRIVATE_ANSWER
 
-# 	if [[ "$PRIVATE_ANSWER" =~ ^[Yy]$ ]]; then
-# 		PRIVATE_TF=true
-# 	else
-# 		PRIVATE_TF=false
-# 	fi
+	if [[ "$PRIVATE_ANSWER" =~ ^[Yy]$ ]]; then
+		PRIVATE_TF=true
+	else
+		PRIVATE_TF=false
+	fi
 
-# 	# Curl some json to the github API oh damn we so fancy
-# 	curl -u dineshraj https://api.github.com/user/repos -d "{\"name\": \"$REPONAME\", \"private\": $PRIVATE_TF}" >/dev/null
+	# Curl some json to the github API oh damn we so fancy
+	curl -u dineshraj https://api.github.com/user/repos -d "{\"name\": \"$REPONAME\", \"private\": $PRIVATE_TF}" >/dev/null
 
-# 	# first commit
-# 	git init 1>/dev/null
-# 	gi macos,visualstudiocode >>.gitignore 1>/dev/null
-# 	print_success ".gitignore added"
-# 	git add . 1>/dev/null
-# 	git commit -m "initial commit" 1>/dev/null
-# 	print_success "initial commit"
-# 	git remote add origin https://github.com/dineshraj/$REPONAME.git 1>/dev/null
-# 	git push -u origin main--force 1>/dev/null
+	# first commit
+	git init 1>/dev/null
+	gi macos,visualstudiocode >>.gitignore 1>/dev/null
+	print_success ".gitignore added"
+	git add . 1>/dev/null
+	git commit -m "initial commit" 1>/dev/null
+	print_success "initial commit"
+	git remote add origin https://github.com/dineshraj/$REPONAME.git 1>/dev/null
+	git push -u origin main--force 1>/dev/null
 
-# 	sleep 0.5
-# 	print_success "\nRepo created"
-# 	print_in_cyan "You can view your new repo at https://github.com/dineshraj/$REPONAME.git"
-# }
+	sleep 0.5
+	print_success "\nRepo created"
+	print_in_cyan "You can view your new repo at https://github.com/dineshraj/$REPONAME.git"
+}
 
 # # make new dir and cd into it
 # take() {
@@ -348,22 +349,6 @@ alias gc="git commit -am"
 # 	cd "${cdir}"
 # }
 
-# # animated gifs from any video
-# # https://gist.github.com/SlexAxton/4989674
-# gifify() {
-# 	if [[ -n "$1" ]]; then
-# 		if [[ $2 == '--good' ]]; then
-# 			ffmpeg -i "$1" -r 10 -vcodec png out-static-%05d.png
-# 			time convert -verbose +dither -layers Optimize -resize 900x900\> out-static*.png GIF:- | gifsicle --colors 128 --delay=5 --loop --optimize=3 --multifile - >"$1.gif"
-# 			rm out-static*.png
-# 		else
-# 			ffmpeg -i "$1" -s 600x400 -pix_fmt rgb24 -r 10 -f gif - | gifsicle --optimize=3 --delay=3 >"$1.gif"
-# 		fi
-# 	else
-# 		echo "✋  proper usage: gifify <input_movie.mov>. You DO need to include extension."
-# 	fi
-# }
-
 # # defaulting tree
 # # tree() {
 # # 	tree -aC -I '.git|node_modules|build|dist' --dirsfirst "$@"
@@ -375,7 +360,6 @@ alias gc="git commit -am"
 # 	sudo rm -rfv /Volumes/*/.Trashes 1>/dev/null
 # 	rm -rfv ~/.Trash/* 1>/dev/null
 # 	sudo rm -v /private/var/vm/sleepimage 1>/dev/null
-
 # }
 
 # pyenv() {
