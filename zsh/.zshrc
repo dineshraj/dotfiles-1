@@ -25,8 +25,14 @@ antigen apply
 # load the rest of the configs
 source $HOME/.dotfiles/zsh/.exports
 source $HOME/.dotfiles/zsh/.aliases
+# source $HOME/.dotfiles/zsh/.work
 
 # set starship prompt
 eval "$(starship init zsh)"
+
+source $(brew --prefix nvm)/nvm.sh
+
+# for Tesco to npm i
+# NODE_EXTRA_CA_CERTS=/Users/dgoomany/dev/tesco-root-ca.pem
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

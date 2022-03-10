@@ -66,16 +66,22 @@ bundle config set --global jobs $((num_cores - 1)) 1>/dev/null
 # install colorls
 gem install clocale colorls 1>/dev/null
 
-printf "📦  Configure Node\n"
-# install n for version management
-yarn global add n 1>/dev/null
-# make cache folder (if missing) and take ownership
-sudo mkdir -p /usr/local/n
-sudo chown -R $(whoami) /usr/local/n
-# take ownership of Node.js install destination folders
-sudo chown -R $(whoami) /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share
-# install and use node lts
-n lts
+# printf "📦  Configure NVM / Node\n"
+# create a directory for NVM in home.
+mkdir ~/.nvm 
+
+# printf "📦  Configure Node\n"
+# # install n for version management
+# yarn global add n 1>/dev/null
+# # make cache folder (if missing) and take ownership
+# sudo mkdir -p /usr/local/n
+# sudo chown -R $(whoami) /usr/local/n
+# # take ownership of Node.js install destination folders
+# sudo chown -R $(whoami) /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share
+# # install and use node lts
+# n lts
+
+
 
 printf "🐍  Configure Python\n"
 # setup pyenv / global python to 3.10.x

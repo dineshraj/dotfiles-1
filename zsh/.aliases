@@ -243,8 +243,7 @@ alias reload="source ~/.zshrc"
 # alias cat="ccat"
 
 # # commonly used dirs
-# alias dev="cd ~/dev"
-# alias work="cd ~/dev/work"
+alias dev="cd ~/dev"
 alias desk="cd ~/Desktop"
 # alias docs="cd ~/documents"
 # alias dl="cd ~/downloads"

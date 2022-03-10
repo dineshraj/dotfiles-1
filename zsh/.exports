@@ -43,5 +43,7 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --smart-case --glob "!.
 export PYENV_SHELL=zsh
 command pyenv rehash 2>/dev/null
 
+export NVM_DIR=~/.nvm
+
 # direnv
 eval "$(direnv hook zsh)"
