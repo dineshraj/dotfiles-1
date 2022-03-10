@@ -31,10 +31,10 @@ build_xcode() {
 }
 
 install_app_store_apps() {
-    # mas install 634148309 # Logic Pro
-    # mas install 1429033973 # RunCat
-    # mas install 411643860 # DaisyDisk
-    # mas install 408981434 # iMovie
+    mas install 634148309 # Logic Pro
+    mas install 1429033973 # RunCat
+    mas install 411643860 # DaisyDisk
+    mas install 408981434 # iMovie
 }
 
 printf "🛠  Installing Xcode Command Line Tools\n"
@@ -44,7 +44,7 @@ printf "🍺  Installing Homebrew packages\n"
 install_brew
 
 printf "🛍️  Installing Mac App Store apps\n"
-# install_app_store_apps
+install_app_store_apps
 
 printf "💻  Set macOS preferences\n"
 ./macos/.macos
@@ -68,7 +68,9 @@ gem install clocale colorls 1>/dev/null
 
 # printf "📦  Configure NVM / Node\n"
 # create a directory for NVM in home.
-mkdir ~/.nvm 
+mkdir ~/.nvm
+# install node 14
+nvm install 14
 
 # printf "📦  Configure Node\n"
 # # install n for version management
@@ -80,8 +82,6 @@ mkdir ~/.nvm
 # sudo chown -R $(whoami) /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share
 # # install and use node lts
 # n lts
-
-
 
 printf "🐍  Configure Python\n"
 # setup pyenv / global python to 3.10.x
