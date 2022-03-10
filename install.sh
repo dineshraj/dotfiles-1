@@ -6,7 +6,6 @@ install_brew() {
         # install homebrew
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         # set path
-        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/dgoomany/.zprofile
         eval "$(/opt/homebrew/bin/brew shellenv)"
     fi
 
@@ -37,6 +36,9 @@ install_app_store_apps() {
     mas install 408981434 # iMovie
 }
 
+# create a directory for NVM in home.
+mkdir ~/.nvm
+
 printf "🛠  Installing Xcode Command Line Tools\n"
 build_xcode
 
@@ -51,11 +53,10 @@ printf "💻  Set macOS preferences\n"
 
 printf "🌈  Configure Ruby\n"
 ruby-install ruby-2.7.4 1>/dev/null
-source /opt/homebrew/opt/chruby/share/chruby.sh
-source /opt/homebrew/opt/chruby/share/auto.sh
+printf "source chruby files\n"
+source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 chruby ruby-2.7.4 1>/dev/null
-# Own the Ruby folder to install gems
-sudo chown -R $USER /Library/Ruby/Gems/
 # disable downloading documentation
 echo "gem: --no-document" >> ~/.gemrc
 gem update --system 1>/dev/null
@@ -64,12 +65,11 @@ gem install bundler 1>/dev/null
 num_cores=$(sysctl -n hw.cpu)
 bundle config set --global jobs $((num_cores - 1)) 1>/dev/null
 # install colorls
+printf "installing colorls\n"
 gem install clocale colorls 1>/dev/null
 
 # printf "📦  Configure NVM / Node\n"
-# create a directory for NVM in home.
-mkdir ~/.nvm
-# install node 14
+source ~/.nvm/nvm.sh
 nvm install 14
 
 # printf "📦  Configure Node\n"
@@ -88,7 +88,8 @@ printf "🐍  Configure Python\n"
 pyenv install 3.10 1>/dev/null
 pyenv global 3.10 1>/dev/null
 
-printf "Installing fzf for control+r integration"
+printf "Installing fzf for control+r integration\n"
+printf "====== SELECT N FOR UPDATING CONFIGURATION FILE ======\n"
 $(brew --prefix)/opt/fzf/install
 
 printf "👽  Installing vim-plug\n"
