@@ -22,7 +22,6 @@ Plug 'rstacruz/vim-closer'
 Plug 'Yggdroot/indentLine'
 Plug 'voldikss/vim-floaterm'
 Plug 'leafgarland/typescript-vim'
-Plug 'ayu-theme/ayu-vim'
 
 " finish plugins
 call plug#end()
@@ -67,8 +66,6 @@ set t_Co=256
 syntax on
 
 set termguicolors
-let ayucolor="mirage"
-colorscheme ayu
 
 hi Normal guibg=NONE ctermbg=NONE
 
