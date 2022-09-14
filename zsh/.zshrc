@@ -25,7 +25,7 @@ antigen apply
 # load the rest of the configs
 source $HOME/.dotfiles/zsh/.exports
 source $HOME/.dotfiles/zsh/.aliases
-# source $HOME/.dotfiles/zsh/.work
+source $HOME/.dotfiles/zsh/.work
 
 # set starship prompt
 eval "$(starship init zsh)"

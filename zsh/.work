@@ -1,6 +1,5 @@
 
-alias work="cd ~/dev/work"
+alias work="cd ~/dev/"
 
 # for Tesco to npm i
 export NODE_EXTRA_CA_CERTS=/Users/dgoomany/dev/tesco-root-ca.pem
-# export NODE_EXTRA_CA_CERTS=/Users/dgoomany/dev/zscaler-root-ca.pem
